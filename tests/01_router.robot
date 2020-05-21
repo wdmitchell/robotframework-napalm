@@ -50,7 +50,7 @@ T01.4 Check BGP comes back after flap
   Should Be Equal  UP  ${peer_state}
 
   Clear BGP Neighbor All   ${napalm-connection-PE1}
-  Sleep     60s
+  Sleep     80s
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  UP  ${peer_state}
