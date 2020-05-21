@@ -54,3 +54,15 @@ T01.4 Check BGP comes back after flap
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  UP  ${peer_state}
+
+T01.5 Check for Chassis Alarms
+  [Tags]  ROUTER  ALARMS
+
+  ${chassis_alarm_state}=     Get Chassis Alarms    ${napalm-connection-PE1}
+  Should Be Equal  No Alarms  ${chassis_alarm_state}
+
+T01.6 Check for System Alarms
+  [Tags]  ROUTER  ALARMS
+
+  ${system_alarm_state}=     Get System Alarms    ${napalm-connection-PE1}
+  Should Be Equal  No Alarms  ${system_alarm_state}

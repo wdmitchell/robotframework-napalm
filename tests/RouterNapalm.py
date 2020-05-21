@@ -61,3 +61,21 @@ def clear_bgp_neighbor_all(device):
 def clear_ospf_neighbor_all(device):
     command = ['clear ospf neighbor all']
     return device.cli(command)
+
+@keyword('Get Chassis Alarms')
+def get_chassis_alarms_state(device):
+    command = ['show chassis alarms']
+    chassis_alarms = device.cli(command)
+    for values in chassis_alarms.values():
+        if "No alarms currently active" in values:
+            return "No Alarms"
+    return chassis_alarms
+
+@keyword('Get System Alarms')
+def get_system_alarms_state(device):
+    command = ['show system alarms']
+    system_alarms = device.cli(command)
+    for values in system_alarms.values():
+        if "No alarms currently active" in values:
+            return "No Alarms"
+    return system_alarms
