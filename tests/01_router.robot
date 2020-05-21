@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Router Test Cases
 
-Library     RobotNapalm.py
+Library     RouterNapalm.py
 Test setup  Connect device
 
 *** Variables ***
@@ -17,25 +17,36 @@ Connect device
   Set Suite Variable  ${napalm-connection-PE1}
 
 *** Test Cases ***
-T01.1 Ping PE Router
+T01.1 Ping VL-PE1 Router Management Interface
   [Documentation]   Check ping is working to PE management interface
   [Tags]  ROUTER
 
-T01.2 Check OSPF comes back after flap
+  ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-PE1}    192.168.1.55
+  Should Be Equal  Successful  ${peer_ping_state}
+
+T01.2 Ping VL-PE2 Loopback Interface
+  [Documentation]   Check ping is working to the Neighbor PE router
+  [Tags]  ROUTER
+
+  ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-PE1}    10.0.0.2
+  Should Be Equal  Successful  ${peer_ping_state}
+
+
+T01.3 Check OSPF comes back after flap
   [Documentation]   Check if OSPF is up, clear OSPF sessions, check again
   [Tags]  OSPF ROUTER
 
-  ${peer_state}=     Get OSPF Peer State    ${napalm-connection-PE1}    10.0.0.2
+  ${peer_state}=     Get OSPF Neighbor State    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  UP  ${peer_state}
 
   Clear OSPF Neighbor All   ${napalm-connection-PE1}
   Sleep     60s
 
-  ${peer_state}=     Get OSPF Peer State    ${napalm-connection-PE1}    10.0.0.2
+  ${peer_state}=     Get OSPF Neighbor State    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  UP  ${peer_state}
 
 
-T01.3 Check BGP comes back after flap
+T01.4 Check BGP comes back after flap
   [Documentation]   Check if BGP peer is UP, clear BGP sessions, check again
   [Tags]  BGP ROUTER
 
