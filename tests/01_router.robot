@@ -24,7 +24,7 @@ T01.1 Ping VL-PE1 Router Management Interface
   Should Be Equal  Successful  ${peer_ping_state}
 
 T01.2 Ping VL-PE2 Loopback Interface
-  [Tags]  ROUTER  Ping
+  [Tags]  ROUTER  PING
 
   ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  Successful  ${peer_ping_state}
