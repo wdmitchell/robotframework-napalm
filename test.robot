@@ -27,7 +27,7 @@ TEST BGP PEER FLAP
   Should Be Equal  UP  ${peer_state}
 
   Execute Operational Command   ${napalm-connection-PE1}    "clear bgp neighbor all"
-  Sleep     45s
+  Sleep     60s
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  UP  ${peer_state}
