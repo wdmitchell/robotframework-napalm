@@ -7,7 +7,6 @@ Test setup  Connect device
 *** Variables ***
 
 ${PE1}=     192.168.1.55
-${PE2}=     10.170.2.1
 ${LOGIN}=   admin
 ${PASSWORD}=    Juniper!
 
