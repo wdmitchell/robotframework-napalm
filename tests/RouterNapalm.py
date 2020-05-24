@@ -8,6 +8,15 @@ def napalm_coonect(device, login, password):
     device.open()
     return device
 
+@keyword('Napalm Connect Cisco IOS')
+def napalm_coonect(device, login, password, secret):
+    driver = get_network_driver('ios')
+    optional_args = {'secret': secret}
+    device = driver(device, login, password, optional_args=optional_args)
+    device.open()
+    return device
+
+
 @keyword('Ping Neighbor')
 def ping(device, peer_ip):
     ping_results = device.ping(peer_ip, count=5)
@@ -55,6 +64,11 @@ def get_ospf_neighbor_state(device, peer_ip):
 @keyword('Clear BGP Neighbor All')
 def clear_bgp_neighbor_all(device):
     command = ['clear bgp neighbor all']
+    return device.cli(command)
+
+@keyword('Clear BGP Neighbor Cisco')
+def clear_bgp_neighbor_all(device, peer_ip):
+    command = ['clear ip bgp peer_ip all']
     return device.cli(command)
 
 @keyword('Clear OSPF Neighbor All')
