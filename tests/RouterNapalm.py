@@ -1,15 +1,15 @@
 from napalm import get_network_driver
 from robot.api.deco import keyword
 
-@keyword('Napalm Connect')
-def napalm_coonect(device, login, password):
+@keyword('Napalm Connect Juniper')
+def napalm_connect_juniper(device, login, password):
     driver = get_network_driver('junos')
     device = driver(device, login, password)
     device.open()
     return device
 
 @keyword('Napalm Connect Cisco IOS')
-def napalm_coonect(device, login, password, secret):
+def napalm_connect_cisco_ios(device, login, password, secret):
     driver = get_network_driver('ios')
     optional_args = {'secret': secret}
     device = driver(device, login, password, optional_args=optional_args)

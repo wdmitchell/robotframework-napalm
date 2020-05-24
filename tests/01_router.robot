@@ -19,7 +19,7 @@ ${PASSWORD}=    Juniper!
 
 *** Keywords ***
 Connect device
-  ${napalm-connection-PE1}=   Napalm Connect  ${PE1}  ${LOGIN}  ${PASSWORD}
+  ${napalm-connection-PE1}=   Napalm Connect Juniper  ${PE1}  ${LOGIN}  ${PASSWORD}
   Set Suite Variable  ${napalm-connection-PE1}
 
 *** Test Cases ***
