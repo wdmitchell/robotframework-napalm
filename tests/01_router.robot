@@ -6,7 +6,14 @@ Test setup  Connect device
 
 *** Variables ***
 
-${PE1}=     192.168.1.55
+${PE1}=     192.168.1.250
+${PE2}=     192.168.1.249
+${NTU1}=     192.168.1.248
+${NTU2}=     192.168.1.247
+${CLIENTROUTER1}=      192.168.1.246
+${CLIENTROUTER1}=      192.168.1.245
+${EXTERNALROUTER}=     192.168.1.243
+
 ${LOGIN}=   admin
 ${PASSWORD}=    Juniper!
 
