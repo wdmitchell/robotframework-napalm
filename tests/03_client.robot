@@ -53,3 +53,9 @@ T03.4 Check Client Router1 BGP comes back after flap
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-CLIENTROUTER1}    172.16.1.0
   Should Be Equal  UP  ${peer_state}
+
+T03.5 Check Number of Routes Received on Client Router1 is > 2 (i.e Full Routes)
+  [Tags]  BGP   CLIENT  ROUTER
+
+  ${peer_state}=     Get BGP Received Routes    ${napalm-connection-CLIENTROUTER1}    172.16.1.0
+  Should Be True  ${peer_state} > 1

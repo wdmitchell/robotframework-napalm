@@ -27,6 +27,17 @@ def ping(device, peer_ip):
     return result
 
 
+@keyword('Get BGP Received Routes')
+def get_bgp_received_routes(device, peer_ip):
+    bgp_peers = device.get_bgp_neighbors_detail(peer_ip)
+    for context in bgp_peers:
+            for asn in bgp_peers[context]:
+                for peer in bgp_peers[context][asn]:
+                    return peer['received_prefix_count']
+
+    return peer['received_prefix_count']
+
+
 
 @keyword('Get BGP Peer State')
 def get_bgp_peer_state(device, peer_ip):
