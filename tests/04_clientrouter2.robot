@@ -48,7 +48,7 @@ T04.4 Check Client Router 2 BGP comes back after flap
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-CLIENTROUTER2}    172.16.1.2
   Should Be Equal  UP  ${peer_state}
 
-  Clear BGP Neighbor Cisco   ${napalm-connection-CLIENTROUTER1}   172.16.1.2
+  Clear BGP Neighbor Cisco   ${napalm-connection-CLIENTROUTER2}   172.16.1.2
   Sleep     80s
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-CLIENTROUTER2}    172.16.1.2
@@ -58,5 +58,5 @@ T04.5 Check if default route only being received on Client Router 2
   [Tags]  BGP   CLIENT  ROUTER
 
   ${peer_state}=     Get BGP Received Routes    ${napalm-connection-CLIENTROUTER2}    172.16.1.2
-  Should Be Equal   1   ${peer_state}
+  Should Be True   ${peer_state}  = 1
 
