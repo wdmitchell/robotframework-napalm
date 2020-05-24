@@ -12,7 +12,7 @@ ${NTU1}=     192.168.1.248
 ${NTU2}=     192.168.1.247
 ${CLIENTROUTER1}=      192.168.1.246
 ${CLIENTROUTER1}=      192.168.1.245
-${EXTERNALROUTER}=     192.168.1.243
+${EXTERNALROUTER}=     192.168.1.244
 
 ${LOGIN}=   admin
 ${PASSWORD}=    Juniper!
@@ -55,7 +55,7 @@ T01.4 Check BGP comes back after flap
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  UP  ${peer_state}
 
-  Clear BGP Neighbor All   ${napalm-connection-PE1}
+  Clear BGP Neighbor Juniper   ${napalm-connection-PE1}   10.0.0.2
   Sleep     80s
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-PE1}    10.0.0.2

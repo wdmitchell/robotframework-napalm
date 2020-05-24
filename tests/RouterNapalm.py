@@ -61,14 +61,14 @@ def get_ospf_neighbor_state(device, peer_ip):
                 return "UP"
     return 'None'
 
-@keyword('Clear BGP Neighbor All')
-def clear_bgp_neighbor_all(device):
-    command = ['clear bgp neighbor all']
+@keyword('Clear BGP Neighbor Juniper')
+def clear_bgp_neighbor_juniper(device, peer_ip):
+    command = ['clear bgp neighbor ' + peer_ip]
     return device.cli(command)
 
 @keyword('Clear BGP Neighbor Cisco')
-def clear_bgp_neighbor_all(device, peer_ip):
-    command = ['clear ip bgp peer_ip all']
+def clear_bgp_neighbor_cisco(device, peer_ip):
+    command = ['clear ip bgp ' + peer_ip + ' all']
     return device.cli(command)
 
 @keyword('Clear OSPF Neighbor All')
