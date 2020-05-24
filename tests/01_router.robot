@@ -26,7 +26,7 @@ Connect device
 T01.1 Ping VL-PE1 Router Management Interface
   [Tags]  ROUTER  PING
 
-  ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-PE1}    192.168.1.55
+  ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-PE1}    192.168.1.250
   Should Be Equal  Successful  ${peer_ping_state}
 
 T01.2 Ping VL-PE2 Loopback Interface
