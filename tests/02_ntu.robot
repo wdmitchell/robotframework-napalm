@@ -33,6 +33,6 @@ T02.1 Ping VL-PE1 Router Admin VRF Interface from NTU1
 T02.2 Ping VL-PE2 Router Admin VRF Interface from NTU1
   [Tags]  ROUTER  PING  NTU
 
-  ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-NTU2}    10.170.2.1
+  ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-NTU1}    10.170.2.1
   Should Be Equal  Successful  ${peer_ping_state}
 
