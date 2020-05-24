@@ -24,7 +24,7 @@ def ping(device, peer_ip):
         if "success" in result:
             return "Successful"
 
-    return 'None'
+    return result
 
 
 
@@ -38,7 +38,7 @@ def get_bgp_peer_state(device, peer_ip):
                     if peer['up'] == True:
                         return "UP"
 
-    return 'None'
+    return peer
 
 @keyword('Get OSPF Neighbor State')
 def get_ospf_neighbor_state(device, peer_ip):
@@ -59,7 +59,7 @@ def get_ospf_neighbor_state(device, peer_ip):
         if peer_ip in values:
             if "Full" in values:
                 return "UP"
-    return 'None'
+    return line
 
 @keyword('Clear BGP Neighbor Juniper')
 def clear_bgp_neighbor_juniper(device, peer_ip):
