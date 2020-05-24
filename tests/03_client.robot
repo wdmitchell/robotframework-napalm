@@ -28,31 +28,31 @@ Connect device
 
 
 *** Test Cases ***
-T01.1 Ping VL-PE1 Router from Client Router 1
+T03.1 Ping VL-PE1 Router from Client Router 1
   [Tags]  CLIENT  PING
 
   ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-CLIENTROUTER1}    10.0.0.1
   Should Be Equal  Successful  ${peer_ping_state}
 
-T01.2 Ping VL-PE2 Router from Client Router 2
+T03.2 Ping VL-PE2 Router from Client Router 2
   [Tags]  CLIENT  PING
 
   ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-CLIENTROUTER2}    10.0.0.2
   Should Be Equal  Successful  ${peer_ping_state}
 
-T01.3 Ping 8.8.8.8 Router from Client Router 1
+T03.3 Ping 8.8.8.8 Router from Client Router 1
   [Tags]  CLIENT  PING    EXTERNAL
 
   ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-CLIENTROUTER1}    8.8.8.8
   Should Be Equal  Successful  ${peer_ping_state}
 
-T01.4 Ping 8.8.8.8 Router from Client Router 2
+T03.4 Ping 8.8.8.8 Router from Client Router 2
   [Tags]  CLIENT  PING  EXTERNAL
 
   ${peer_ping_state}=     Ping Neighbor    ${napalm-connection-CLIENTROUTER2}    8.8.8.8
   Should Be Equal  Successful  ${peer_ping_state}
 
-T01.5 Check Client Router1 BGP comes back after flap
+T03.5 Check Client Router1 BGP comes back after flap
   [Tags]  BGP   CLIENT  ROUTER
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-CLIENTROUTER1}    172.16.1.0
@@ -64,7 +64,7 @@ T01.5 Check Client Router1 BGP comes back after flap
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-CLIENTROUTER1}    172.16.1.0
   Should Be Equal  UP  ${peer_state}
 
-T01.6 Check Client Router2 BGP comes back after flap
+T03.6 Check Client Router2 BGP comes back after flap
   [Tags]  BGP   CLIENT  ROUTER
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-CLIENTROUTER2}    172.16.1.2
