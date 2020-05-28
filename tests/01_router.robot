@@ -11,7 +11,7 @@ ${PE2}=     192.168.1.249
 ${NTU1}=     192.168.1.248
 ${NTU2}=     192.168.1.247
 ${CLIENTROUTER1}=      192.168.1.246
-${CLIENTROUTER1}=      192.168.1.245
+${CLIENTROUTER2}=      192.168.1.245
 ${EXTERNALROUTER}=     192.168.1.244
 
 ${LOGIN}=   admin
@@ -43,7 +43,7 @@ T01.3 Check OSPF comes back after flap
   Should Be Equal  UP  ${peer_state}
 
   Clear OSPF Neighbor All   ${napalm-connection-PE1}
-  Sleep     60s
+  Sleep     45s
 
   ${peer_state}=     Get OSPF Neighbor State    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  UP  ${peer_state}
@@ -56,7 +56,7 @@ T01.4 Check BGP comes back after flap
   Should Be Equal  UP  ${peer_state}
 
   Clear BGP Neighbor Juniper   ${napalm-connection-PE1}   10.0.0.2
-  Sleep     80s
+  Sleep     60s
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-PE1}    10.0.0.2
   Should Be Equal  UP  ${peer_state}

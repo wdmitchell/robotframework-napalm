@@ -49,7 +49,7 @@ T03.4 Check Client Router1 BGP comes back after flap
   Should Be Equal  UP  ${peer_state}
 
   Clear BGP Neighbor Cisco   ${napalm-connection-CLIENTROUTER1}   172.16.1.0
-  Sleep     80s
+  Sleep     60s
 
   ${peer_state}=     Get BGP Peer State    ${napalm-connection-CLIENTROUTER1}    172.16.1.0
   Should Be Equal  UP  ${peer_state}
