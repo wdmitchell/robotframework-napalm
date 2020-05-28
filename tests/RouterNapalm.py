@@ -19,7 +19,7 @@ def napalm_connect_cisco_ios(device, login, password, secret):
 
 @keyword('Ping Neighbor')
 def ping(device, peer_ip):
-    ping_results = device.ping(peer_ip, count=5)
+    ping_results = device.ping(peer_ip, count=2)
     for result in ping_results:
         if "success" in result:
             return "Successful"
