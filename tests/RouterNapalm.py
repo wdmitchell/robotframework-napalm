@@ -37,6 +37,10 @@ def get_bgp_received_routes(device, peer_ip):
 
     return peer['received_prefix_count']
 
+@keyword('Get Route Origin ASN')
+def get_route_origin_asn(device,route):
+    route_check = device.get_route_to(destination=route)
+    return route_check[route][0]['protocol_attributes']['as_path']
 
 
 @keyword('Get BGP Peer State')
