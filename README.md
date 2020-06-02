@@ -14,7 +14,6 @@ To run the tests, do:
 robot tests/*.robot
 
 # Example outputs
-http://www.github.com/wdmitchell/robotframework-napalm/log.html
+https://github.com/wdmitchell/robotframework-napalm/blob/master/log.html
 
-http://www.github.com/wdmitchell/robotframework-napalm/report.html
-
+https://github.com/wdmitchell/robotframework-napalm/blob/master/report.html
