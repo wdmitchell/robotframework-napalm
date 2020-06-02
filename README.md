@@ -13,3 +13,6 @@ To run the tests, do:
 
 robot tests/*.robot
 
+# Example outputs
+log.html
+report.html
